@@ -1,0 +1,43 @@
+﻿@page "/"
+
+<PageTitle>Currículo | Dev .NET</PageTitle>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="text-center p-4 bg-light rounded-3 mb-4">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="rounded-circle mb-3"
+                     width="120" />
+                <h3>Cecília Telles</h3>
+                <p class="text-muted">Desenvolvedor Fullstack</p>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="mb-4">Experiência Profissional</h2>
+            
+            @foreach (var exp in MinhasExperiencias)
+            {
+                <ExperienciaCard Dados="exp" />
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Experiencia> MinhasExperiencias = new()
+    {
+        new Experiencia {
+            Empresa = "Faculdade UNA - Barreiro",
+            Cargo = "Estudante",
+            Inicio = "2026",
+            Descricao = "Cursando Ciências da computação no 1° semestre."
+        },
+        new Experiencia {
+            Empresa = "ESCOLA SANDOVAL SOARES DE AZEVEDO",
+            Cargo = "Aluna do curso técnico de Informática",
+            Inicio = "2023", Fim = "2025",
+            Descricao = "Curso técnico de informática básica integral."
+        }
+    };
+}
